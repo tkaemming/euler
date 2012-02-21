@@ -1,2 +1,4 @@
-(defn evenly-divisible [denominator numerator] (= (mod numerator denominator) 0))
-(println (apply + (filter #(or (evenly-divisible 3 %) (evenly-divisible 5 %)) (range 1 1000))))
+(println (letfn [(divides-evenly [denominator numerator] (= 0 (mod numerator denominator)))]
+    (let [predicate #(or (divides-evenly 5 %) (divides-evenly 3 %))
+          sum #(apply + %)]
+    (sum (filter predicate (range 1 1000))))))
