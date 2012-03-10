@@ -2,17 +2,11 @@
 _ = require 'underscore'
 
 denominators = [3, 5]
-
-divisble = (numerator, denominator) ->
-    numerator % denominator is 0
-
-test = (numerator) ->
-    _.any denominators, (denominator) ->
-        divisble numerator, denominator
+max = 1000
 
 sum = (list) ->
-    reducer = (memo, value) -> memo + value
-    _.reduce list, reducer, 0
+    _.reduce list, ((memo, value) -> memo + value), 0
 
-result = sum _.filter [1...1000], test
-console.log result
+console.log sum _.filter [1...max], (numerator) ->
+    _.any denominators, (denominator) ->
+        numerator % denominator is 0
