@@ -5,6 +5,12 @@ if denominators.empty?
   denominators = [3, 5]
 end
 
-puts (1...max).select { |numerator|
-  denominators.any? { |denominator| numerator % denominator == 0 }
-}.reduce(:+)
+result = (1...max).reduce(0) do |memo, numerator|
+  if denominators.any? { |denominator| numerator % denominator == 0 }
+    memo + numerator
+  else
+    memo
+  end
+end
+
+puts result
