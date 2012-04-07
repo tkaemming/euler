@@ -1,5 +1,4 @@
 #!/usr/bin/env escript
--import(lists).
 
 solve(Upper) ->
     Range = lists:seq(1, Upper),
