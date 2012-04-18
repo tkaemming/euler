@@ -3,10 +3,8 @@ from itertools import ifilter, takewhile
 
 def fibonacci(start=1):
     """Generates an infinite length Fibonacci sequence."""
-    a = start
-    yield a
-    b = a + a
-    yield b
+    a = 0
+    b = start
     while True:
         c = a + b
         yield c
