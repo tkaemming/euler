@@ -3,13 +3,11 @@ from itertools import ifilter, takewhile
 
 def fibonacci(start=1):
     """Generates an infinite length Fibonacci sequence."""
-    a = 0
-    b = start
+    a, b = 0, start
     while True:
         c = a + b
         yield c
-        a = b
-        b = c
+        a, b = b, c
 
 def is_even(n):
     """Returns True if a number is even."""
